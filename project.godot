@@ -31,6 +31,10 @@ folder_colors={
 "res://game/": "blue",
 "res://game/common/": "orange",
 "res://game/components/": "orange",
+"res://game/entities/": "purple",
+"res://game/entities/characters/": "blue",
+"res://game/entities/enemies/": "red",
+"res://game/weapons/": "purple",
 "res://menu/": "green",
 "res://test/": "gray"
 }

@@ -2,8 +2,14 @@ class_name Heal
 extends RefCounted
 
 
-var amount: int = 0
+var value: int:
+	set(new_value):
+		_stat.value = new_value
+	get:
+		return _stat.value
+
+var _stat: PosStat = PosStat.new()
 
 
-func _init(new_amount: int = 0) -> void:
-	amount = new_amount
+func _init(new_value: int = 0) -> void:
+	value = new_value
