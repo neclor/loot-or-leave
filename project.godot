@@ -34,7 +34,22 @@ folder_colors={
 "res://game/entities/": "purple",
 "res://game/entities/characters/": "blue",
 "res://game/entities/enemies/": "red",
-"res://game/weapons/": "purple",
+"res://game/items/": "blue",
+"res://game/items/weapons/": "red",
+"res://game/objects/": "yellow",
 "res://menu/": "green",
 "res://test/": "gray"
 }
+
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="obstacle"
+2d_physics/layer_4="entity"
+2d_physics/layer_5="enemy"
+2d_physics/layer_6="character"
+2d_physics/layer_7="projectile"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

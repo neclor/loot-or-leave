@@ -2,13 +2,9 @@ class_name Damage
 extends RefCounted
 
 
-var value: int:
+var value: int = 0:
 	set(new_value):
-		_stat.value = new_value
-	get:
-		return _stat.value
-
-var _stat: PosStat = PosStat.new()
+		value = clamp(new_value, 0, Limits.INT_MAX)
 
 
 func _init(new_value: int = 0) -> void:

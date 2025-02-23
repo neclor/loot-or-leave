@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://pv2b3eccp2sc"]
+
+[ext_resource type="PackedScene" uid="uid://c0urqa5ggp2tw" path="res://game/entities/entity.tscn" id="1_56fpm"]
+[ext_resource type="Script" uid="uid://b1pkdpqwh0x07" path="res://game/entities/characters/character.gd" id="2_qo126"]
+
+[node name="Character" groups=["characters"] instance=ExtResource("1_56fpm")]
+script = ExtResource("2_qo126")
