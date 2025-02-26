@@ -4,7 +4,7 @@ extends RefCounted
 
 var value: int = 0:
 	set(new_value):
-		value = clamp(new_value, 0, Limits.INT_MAX)
+		value = maxi(0, new_value)
 
 
 func _init(new_value: int = 0) -> void:

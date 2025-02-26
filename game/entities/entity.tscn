@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0urqa5ggp2tw"]
+[gd_scene load_steps=6 format=3 uid="uid://c0urqa5ggp2tw"]
 
 [ext_resource type="Script" uid="uid://c8oqbvrdocfod" path="res://game/entities/entity.gd" id="1_f5xi6"]
-[ext_resource type="Script" uid="uid://bkmbwffy64n4w" path="res://game/components/health_component.gd" id="2_l8paq"]
-[ext_resource type="Script" uid="uid://omvk07ckautu" path="res://game/components/inventory.gd" id="3_o078u"]
-[ext_resource type="Script" uid="uid://b8g8pngb2sdgt" path="res://game/items/item.gd" id="4_o078u"]
+[ext_resource type="Script" uid="uid://bkmbwffy64n4w" path="res://game/common/components/health_component.gd" id="2_l8paq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5xi6"]
 
@@ -28,13 +26,3 @@ tree_root = SubResource("AnimationNodeStateMachine_vssi4")
 unique_name_in_owner = true
 script = ExtResource("2_l8paq")
 metadata/_custom_type_script = "uid://bkmbwffy64n4w"
-
-[node name="Inventory" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("3_o078u")
-_max_weight = null
-metadata/_custom_type_script = "uid://omvk07ckautu"
-
-[node name="Item" type="Node2D" parent="Inventory"]
-script = ExtResource("4_o078u")
-metadata/_custom_type_script = "uid://b8g8pngb2sdgt"
