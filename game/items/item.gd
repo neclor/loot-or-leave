@@ -14,3 +14,16 @@ func _init() -> void:
 
 func _ready() -> void:
 	pass
+
+
+
+func try_add_effect(parent) -> bool:
+	if not parent.has_method("add_effect"): return false
+	
+	
+	return false
+
+
+
+func try_remove_effect() -> bool:
+	return false
