@@ -58,7 +58,7 @@ func get_weight_limit() -> int:
 func try_set_weight_limit(new_weight_limit: int) -> bool:
 	if _weight_limit_enabled:
 		if new_weight_limit < _current_weight: return false
-	_weight_limit = new_weight_limit
+	_weight_limit = maxi(0, new_weight_limit)
 	return true
 
 
@@ -88,7 +88,7 @@ func get_items_limit() -> int:
 func try_set_items_limit(new_items_limit: int) -> bool:
 	if _items_limit_enabled:
 		if new_items_limit < _items_number: return false
-	_items_limit = new_items_limit
+	_items_limit = maxi(0, new_items_limit)
 	return true
 
 

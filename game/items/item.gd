@@ -17,9 +17,8 @@ func _ready() -> void:
 
 
 
-func try_add_effect(parent) -> bool:
-	if not parent.has_method("add_effect"): return false
-	
+func try_apply_effect(parent: Node) -> bool:
+	if not parent.has_method("try_add_effect"): return false
 	
 	return false
 
