@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0urqa5ggp2tw"]
+[gd_scene load_steps=6 format=3 uid="uid://c0urqa5ggp2tw"]
 
 [ext_resource type="Script" uid="uid://c8oqbvrdocfod" path="res://game/entities/entity.gd" id="1_f5xi6"]
-[ext_resource type="Script" uid="uid://bkmbwffy64n4w" path="res://game/common/components/health_component.gd" id="2_l8paq"]
-[ext_resource type="Script" uid="uid://omvk07ckautu" path="res://game/common/components/item_container.gd" id="3_hauie"]
-[ext_resource type="Script" uid="uid://d0fx2hywfybk5" path="res://game/common/components/effect_container.gd" id="4_7x727"]
-[ext_resource type="Script" uid="uid://p3omjryu8mdh" path="res://game/common/components/inventory.gd" id="5_oglxn"]
+[ext_resource type="Script" uid="uid://cm7la7b4kbsco" path="res://game/entities/health_component.gd" id="2_vssi4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5xi6"]
 
@@ -25,25 +22,6 @@ texture = SubResource("CanvasTexture_f5xi6")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_vssi4")
 
-[node name="HealthComponent" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("2_l8paq")
-metadata/_custom_type_script = "uid://bkmbwffy64n4w"
-
-[node name="ItemContainer" type="Node" parent="."]
-script = ExtResource("3_hauie")
-_weight_limit_enabled = null
-_weight_limit = null
-_items_limit_enabled = null
-_items_limit = null
-metadata/_custom_type_script = "uid://omvk07ckautu"
-
-[node name="EffectContainer" type="Node2D" parent="."]
-script = ExtResource("4_7x727")
-effect_limit_enabled = null
-_effect_limit = null
-metadata/_custom_type_script = "uid://d0fx2hywfybk5"
-
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("5_oglxn")
-metadata/_custom_type_script = "uid://p3omjryu8mdh"
+[node name="EntityHealthComponent" type="Node" parent="."]
+script = ExtResource("2_vssi4")
+metadata/_custom_type_script = "uid://cm7la7b4kbsco"

@@ -3,6 +3,13 @@ extends EditorScript
 
 
 func _run() -> void:
+	
+	var a = Entity.new()
+	if a is Entity:
+		print("dad")
+	
+	return
+	
 	print("TEST")
 	run_test_scripts("res://test/test_game/")
 	print("TEST COMPLETED")
