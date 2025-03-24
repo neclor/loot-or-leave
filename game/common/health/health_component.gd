@@ -2,8 +2,10 @@ class_name HealthComponent
 extends Node
 
 
-@warning_ignore("unused_signal") signal died
-@warning_ignore("unused_signal") signal health_changed(old_value: float, new_value: float)
+signal damage_taken(value: int)
+signal heal_taken(value: int)
+signal health_changed(new_health: int)
+signal died
 
 
 @export_group("")
@@ -15,7 +17,6 @@ extends Node
 var health: int = max_health:
 	set(new_value):
 		health = clampi(new_value, 0, max_health)
-		check_death()
 
 var dead: bool = false
 
@@ -25,17 +26,32 @@ func _init(new_max_health: int = max_health) -> void:
 
 
 func take_damage(damage: Damage) -> int:
+	if dead: return 0
+
 	var previous_health: int = health
 	health -= damage.value
-	return previous_health - health
+
+	var health_difference = previous_health - health
+	if health_difference != 0: health_changed.emit(health)
+	damage_taken.emit(health_difference)
+	check_death()
+	return health_difference
 
 
 func take_heal(heal: Heal) -> int:
+	if dead: return 0
+
 	var previous_health: int = health
 	health += heal.value
-	return health - previous_health
+
+	var health_difference = health - previous_health
+	if health_difference != 0: health_changed.emit(health)
+	heal_taken.emit(health_difference)
+	return health_difference
 
 
 func check_death() -> void:
-	if health == 0: dead = true
-	died.emit()
+	if dead: return
+	if health == 0: 
+		dead = true
+		died.emit()
