@@ -1,5 +1,4 @@
-class_name Damage
-extends RefCounted
+class_name Damage extends RefCounted
 
 
 var value: int = 0:

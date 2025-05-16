@@ -1,5 +1,4 @@
-class_name Heal
-extends RefCounted
+class_name Heal extends RefCounted
 
 
 var value: int = 0:
