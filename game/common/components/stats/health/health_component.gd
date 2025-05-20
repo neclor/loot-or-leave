@@ -4,6 +4,7 @@ class_name HealthComponent extends StatComponent
 signal resurrected(value: int)
 
 
+@export_group("")
 @export var _dead: bool = false
 
 

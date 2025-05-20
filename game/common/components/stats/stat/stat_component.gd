@@ -11,10 +11,10 @@ signal on_full(value: int)
 
 @export_group("")
 @export_range(0, 100, 1, "or_greater") var _max_value: int = 100
-@export_range(0, 100, 1, "or_greater") var _value: int = _max_value
+@export_range(0, 100, 1, "or_greater") var _value: int = 100
 
 
-func _init(new_max_value: int = _max_value, new_value: int = _max_value) -> void:
+func _init(new_max_value: int = _max_value, new_value: int = new_max_value) -> void:
 	set_max_value(new_max_value)
 	set_value(new_value)
 

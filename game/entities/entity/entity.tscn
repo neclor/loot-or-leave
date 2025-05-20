@@ -1,43 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0urqa5ggp2tw"]
+[gd_scene load_steps=5 format=3 uid="uid://c0urqa5ggp2tw"]
 
 [ext_resource type="Script" uid="uid://c8oqbvrdocfod" path="res://game/entities/entity/entity.gd" id="1_f5xi6"]
 [ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/common/movement_component.gd" id="2_4fm4p"]
-[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/common/stats/health/health_component.gd" id="3_tkw2h"]
-[ext_resource type="Script" uid="uid://c3fkpb0rtkrui" path="res://game/common/stats/stat/stat_component.gd" id="4_c54rg"]
+[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/common/components/stats/health/health_component.gd" id="3_tkw2h"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_f5xi6"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vssi4"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5xi6"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkw2h"]
+radius = 6.0
 
 [node name="Entity" type="CharacterBody2D" groups=["entities"]]
 motion_mode = 1
 script = ExtResource("1_f5xi6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("CanvasTexture_f5xi6")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_vssi4")
-
-[node name="Node" type="Node" parent="."]
-
-[node name="Node2" type="Node" parent="."]
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
-shape = SubResource("CapsuleShape2D_f5xi6")
-
-[node name="MovementComponent" type="Node" parent="."]
-script = ExtResource("2_4fm4p")
-metadata/_custom_type_script = "uid://bh467f4lvbdgk"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tkw2h")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_tkw2h")
 metadata/_custom_type_script = "uid://bxl81556qdm7w"
 
-[node name="StatComponent" type="Node" parent="."]
-script = ExtResource("4_c54rg")
-metadata/_custom_type_script = "uid://c3fkpb0rtkrui"
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("2_4fm4p")
+metadata/_custom_type_script = "uid://bh467f4lvbdgk"

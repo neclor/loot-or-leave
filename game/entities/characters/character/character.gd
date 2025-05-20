@@ -1,5 +1,4 @@
-class_name Character
-extends Entity
+class_name Character extends Entity
 
 
 
