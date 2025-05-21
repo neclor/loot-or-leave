@@ -1,5 +1,4 @@
-class_name Inventory
-extends ItemContainer
+class_name Inventor extends ItemContainer
 
 
 var parent: Node = null

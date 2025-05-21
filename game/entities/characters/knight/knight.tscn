@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1lh1ufo7m85m"]
+
+[ext_resource type="Script" uid="uid://y1uixca2kvms" path="res://game/components/input/input_component.gd" id="1_ebuqp"]
+[ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/components/movement/movement_component.gd" id="2_3fop4"]
+[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/health/health_component.gd" id="3_4dlhe"]
+[ext_resource type="PackedScene" uid="uid://dxdofq3wesr6n" path="res://game/components/camera/camera_component.tscn" id="4_3fop4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_maq08"]
+radius = 6.0
+
+[node name="Knight" type="CharacterBody2D"]
+collision_layer = 65536
+collision_mask = 6
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_maq08")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(2, -8)
+polygon = PackedVector2Array(-5, -1, -2, 0, -4, 1, -5, 1, -5, 7, -4, 3, -4, 11, -3, 6, 0, 6, 1, 11, 1, 3, 2, 7, 2, 1, 1, 1, 0, 0, 1, -2, -3, -3)
+uv = PackedVector2Array(0, -6, -6, 0, 0, 6, 6, 0)
+
+[node name="CameraComponent" parent="." instance=ExtResource("4_3fop4")]
+
+[node name="InputComponent" type="Node" parent="."]
+script = ExtResource("1_ebuqp")
+metadata/_custom_type_script = "uid://y1uixca2kvms"
+
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("character_body")]
+script = ExtResource("2_3fop4")
+character_body = NodePath("..")
+metadata/_custom_type_script = "uid://bh467f4lvbdgk"
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_4dlhe")
+metadata/_custom_type_script = "uid://bxl81556qdm7w"
+
+[connection signal="input_direction_changed" from="InputComponent" to="MovementComponent" method="set_direction"]
+[connection signal="scroll_down" from="InputComponent" to="CameraComponent" method="zoom_out"]
+[connection signal="scroll_up" from="InputComponent" to="CameraComponent" method="zoom_in"]

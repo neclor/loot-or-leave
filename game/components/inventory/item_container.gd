@@ -1,11 +1,11 @@
-class_name ItemContainer
-extends Node
+class_name ItemContainer extends Node
 
 
 @export_group("Weight Limit")
 @export var _weight_limit_enabled: bool = false
 @export_range(0, 0, 1, "or_greater") var _weight_limit: int = 0
 var _current_weight: int = 0
+
 
 @export_group("Items Limit")
 @export var _items_limit_enabled: bool = false

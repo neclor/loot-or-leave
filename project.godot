@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [editor_plugins]
@@ -29,11 +29,13 @@ folder_colors={
 "res://assets/": "yellow",
 "res://game/": "blue",
 "res://game/common/": "orange",
+"res://game/components/": "orange",
 "res://game/entities/": "purple",
 "res://game/entities/characters/": "blue",
 "res://game/entities/enemies/": "red",
-"res://game/items/": "blue",
+"res://game/items/": "purple",
 "res://game/items/weapons/": "red",
+"res://game/locations/": "blue",
 "res://game/objects/": "yellow",
 "res://main/": "red",
 "res://menu/": "green",
@@ -90,19 +92,16 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
-2d_physics/layer_1="wall"
-2d_physics/layer_2="top_wall"
-2d_physics/layer_3="middle_wall"
-2d_physics/layer_4="bottom_wall"
+2d_physics/layer_1="top_obstacle"
+2d_physics/layer_2="middle_obstacle"
+2d_physics/layer_3="bottom_obstacle"
 2d_physics/layer_5="water"
 2d_physics/layer_6="abyss"
 2d_physics/layer_9="item"
-2d_physics/layer_10="object"
 2d_physics/layer_13="melee_weapon"
 2d_physics/layer_14="projectile"
-2d_physics/layer_17="entity"
-2d_physics/layer_18="ground_entity"
-2d_physics/layer_19="flying_entity"
+2d_physics/layer_17="ground_entity"
+2d_physics/layer_18="flying_entity"
 
 [rendering]
 

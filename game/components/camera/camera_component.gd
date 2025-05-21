@@ -1,14 +1,12 @@
 class_name CameraComponent extends Camera2D
 
 
-
-
 @export_group("")
-@export var min_zoom: Vector2 = Vector2(0.25, 0.25):
+@export var min_zoom: Vector2 = Vector2(0.5, 0.5):
 	set(new_value):
 		min_zoom = new_value.maxf(0)
 
-@export var max_zoom: Vector2 = Vector2(2, 2):
+@export var max_zoom: Vector2 = Vector2(4, 4):
 	set(new_value):
 		max_zoom = new_value.maxf(0)
 
