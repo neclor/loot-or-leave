@@ -3,12 +3,27 @@ class_name CameraComponent extends Camera2D
 
 @export_group("")
 @export var min_zoom: Vector2 = Vector2(0.5, 0.5):
-	set(new_value):
-		min_zoom = new_value.maxf(0)
-
+	get = get_min_zoom,
+	set = set_min_zoom
 @export var max_zoom: Vector2 = Vector2(4, 4):
-	set(new_value):
-		max_zoom = new_value.maxf(0)
+	get = get_max_zoom,
+	set = set_max_zoom
+
+
+func get_min_zoom() -> Vector2:
+	return min_zoom
+
+
+func set_min_zoom(new_value: Vector2) -> void:
+	min_zoom = new_value.clamp(Vector2.ZERO, max_zoom)
+
+
+func get_max_zoom() -> Vector2:
+	return max_zoom
+
+
+func set_max_zoom(new_value: Vector2) -> void:
+	max_zoom = new_value.max(min_zoom)
 
 
 func zoom_in() -> void:

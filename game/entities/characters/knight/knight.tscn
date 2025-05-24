@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1lh1ufo7m85m"]
+[gd_scene load_steps=8 format=3 uid="uid://d1lh1ufo7m85m"]
 
-[ext_resource type="Script" uid="uid://y1uixca2kvms" path="res://game/components/input/input_component.gd" id="1_ebuqp"]
-[ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/components/movement/movement_component.gd" id="2_3fop4"]
-[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/health/health_component.gd" id="3_4dlhe"]
-[ext_resource type="PackedScene" uid="uid://dxdofq3wesr6n" path="res://game/components/camera/camera_component.tscn" id="4_3fop4"]
+[ext_resource type="Script" uid="uid://y1uixca2kvms" path="res://game/components/script_components/input/input_component.gd" id="1_ebuqp"]
+[ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/components/script_components/movement/movement_component.gd" id="2_3fop4"]
+[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/script_components/health/health_component.gd" id="3_4dlhe"]
+[ext_resource type="PackedScene" uid="uid://dxdofq3wesr6n" path="res://game/components/node_components/camera/camera_component.tscn" id="4_3fop4"]
+[ext_resource type="PackedScene" uid="uid://b6dwnubsgw6ga" path="res://game/components/node_components/point_light/point_light_component.tscn" id="5_4dlhe"]
+[ext_resource type="Script" uid="uid://cphauhw4nadxy" path="res://child.gd" id="6_maq08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maq08"]
 radius = 6.0
@@ -23,6 +25,9 @@ uv = PackedVector2Array(0, -6, -6, 0, 0, 6, 6, 0)
 
 [node name="CameraComponent" parent="." instance=ExtResource("4_3fop4")]
 
+[node name="PointLightComponent" parent="." instance=ExtResource("5_4dlhe")]
+color = Color(1, 0.78, 0.12, 1)
+
 [node name="InputComponent" type="Node" parent="."]
 script = ExtResource("1_ebuqp")
 metadata/_custom_type_script = "uid://y1uixca2kvms"
@@ -35,6 +40,10 @@ metadata/_custom_type_script = "uid://bh467f4lvbdgk"
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_4dlhe")
 metadata/_custom_type_script = "uid://bxl81556qdm7w"
+
+[node name="Child" type="Node" parent="."]
+script = ExtResource("6_maq08")
+metadata/_custom_type_script = "uid://cphauhw4nadxy"
 
 [connection signal="input_direction_changed" from="InputComponent" to="MovementComponent" method="set_direction"]
 [connection signal="scroll_down" from="InputComponent" to="CameraComponent" method="zoom_out"]

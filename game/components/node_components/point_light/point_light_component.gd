@@ -1,0 +1,1 @@
+class_name PointLightComponent extends PointLight2D

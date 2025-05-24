@@ -1,18 +1,80 @@
-class_name ItemContainer extends Node
+class_name ItemStorageComponent extends Node
 
 
 @export_group("Weight Limit")
-@export var _weight_limit_enabled: bool = false
-@export_range(0, 0, 1, "or_greater") var _weight_limit: int = 0
-var _current_weight: int = 0
+@export var weight_limit_enabled: bool = true:
+	get = get_weight_limit_enabled,
+	set = set_weight_limit_enabled
+@export_range(0, 100, 1, "or_greater") var max_weight: int = 32:
+	get = get_max_weight,
+	set = set_max_weight
+var _weight: int = 0:
+	get = 
+var weight: int:
+	get = get_weight,
+	set = set_weight
 
 
 @export_group("Items Limit")
-@export var _items_limit_enabled: bool = false
-@export_range(0, 0, 1, "or_greater") var _items_limit: int = 0
-var _items_number: int = 0
+@export var item_count_limit_enabled: bool = false:
+	get = get_item_count_limit_enabled,
+	set = set_item_count_limit_enabled
+@export_range(0, 100, 1, "or_greater") var max_item_count: int = 100:
+	get = get_max_item_count,
+	set = set_max_item_count
+var item_count: int = 0:
+	get = get_item_count,
+	set = set_item_count
 
-var _items: Array[Item] = []
+
+var _items: Array[Node] = []:
+
+
+func get_weight_limit_enabled() -> bool:
+	return weight_limit_enabled
+
+
+func set_weight_limit_enabled(new_value: int) -> void:
+	
+
+
+func get_max_weight() -> int:
+	return max_weight
+
+
+func set_max_weight(new_value: int) -> void:
+	
+
+
+func get_weight() -> int:
+	return weight
+
+
+func set_weight(_new_value: int) -> void:
+	return
+
+
+func get_item_count_limit_enabled() -> bool:
+	return item_count_limit_enabled
+
+
+func set_item_count_limit_enabled(new_value: int) -> void:
+	
+
+
+func get_max_item_count() -> int:
+	return max_item_count
+
+
+func set_max_item_count(new_value: int) -> void:
+
+
+func get_item_count() -> int:
+	return item_count
+
+
+func set_item_count(_new_value: int) -> void:
+	return
 
 
 #region Items Management

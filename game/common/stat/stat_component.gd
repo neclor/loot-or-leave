@@ -10,79 +10,106 @@ signal on_full(value: int)
 
 
 @export_group("")
-@export_range(0, 100, 1, "or_greater") var _max_value: int = 100
-@export_range(0, 100, 1, "or_greater") var _value: int = 100
+@export_range(0, 100, 1, "or_greater") var max_value: int = 100:
+	get = get_max_value,
+	set = set_max_value
+@export_range(0, 100, 1, "or_greater") var value: int = 100:
+	get = get_value,
+	set = set_value
 
 
-func _init(new_max_value: int = _max_value, new_value: int = new_max_value) -> void:
-	set_max_value(new_max_value)
-	set_value(new_value)
+func _init(new_max_value: int = max_value, new_value: int = new_max_value) -> void:
+	max_value = new_max_value
+	value = new_value
 
 
 func get_max_value() -> int:
-	return _max_value
+	return max_value
 
 
 func set_max_value(new_max_value: int) -> void:
-	var old_max_value: int = _max_value
-	_max_value = maxi(0, new_max_value)
+	var old_max_value: int = max_value
+	max_value = maxi(0, new_max_value)
 
-	if old_max_value == _max_value: return
+	if old_max_value == max_value: return
 
-	max_value_changed.emit(_max_value)
-	var old_value: int = _value
-	set_value(_value)
-	if old_value == _value and _value == _max_value: on_full.emit(_value)
+	max_value_changed.emit(max_value)
+	var old_value: int = value
+	value = value
+	if old_value == value and value == max_value: on_full.emit(value)
 
 
 func get_value() -> int:
-	return _value
+	return value
 
 
 func set_value(new_value: int) -> void:
-	_value = clampi(new_value, 0, _max_value)
+	var old_value: int = value
+	value = clampi(new_value, 0, max_value)
 
-	if _value == new_value: return
+	if old_value == value: return
 
-	value_changed.emit(_value)
+	value_changed.emit(value)
 	if not _check_zero(): _check_full()
 
 
 func is_zero() -> bool:
-	return _value == 0
+	return value == 0
 
 
 func is_full() -> bool:
-	return _value == _max_value
+	return value == max_value
 
 
-func decrease(amount: int) -> void:
+func decrease_max_value(amount: int) -> void:
+	if amount <= 0: return
+	max_value -= amount
+
+
+func increase_max_value(amount: int) -> void:
+	if amount <= 0: return
+	max_value += amount
+
+
+func decrease_value(amount: int) -> void:
 	if amount <= 0: return
 
-	var old_value: int = _value
-	set_value(_value - amount)
-	var difference: int = old_value - _value
+	var old_value: int = value
+	value -= amount
+	var difference: int = old_value - value
 	if difference > 0: value_decreased.emit(difference)
 
 
-func increase(amount: int) -> void:
+func increase_value(amount: int) -> void:
 	if amount <= 0: return
 
-	var old_value: int = _value
-	set_value(_value + amount)
-	var difference: int = _value - old_value
+	var old_value: int = value
+	value += amount
+	var difference: int = value - old_value
 	if difference > 0: value_increased.emit(difference)
 
 
+func try_decrease_value(amount: int) -> bool:
+	if value < amount: return false
+	decrease_value(amount)
+	return true
+
+
+func try_increase_value(amount: int) -> bool:
+	if max_value - value < amount: return false
+	increase_value(amount)
+	return true
+
+
 func _check_zero() -> bool:
-	if _value != 0: return false
+	if value != 0: return false
 
 	on_zero.emit()
 	return true
 
 
 func _check_full() -> bool:
-	if _value != _max_value: return false
+	if value != max_value: return false
 
-	on_full.emit(_value)
+	on_full.emit(value)
 	return true
