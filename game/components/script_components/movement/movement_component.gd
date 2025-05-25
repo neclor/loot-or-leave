@@ -2,13 +2,19 @@ class_name MovementComponent extends Node
 
 
 @export_group("")
-@export_range(0, 100, 1, "or_greater", "hide_slider") var speed: float = 64:
-	get = get_speed,
-	set = set_speed
+@export var character_body: CharacterBody2D = null
 @export_range(0.1, 100, 0.1, "or_greater", "hide_slider") var mass: float = 1:
 	get = get_mass,
 	set = set_mass
-@export var character_body: CharacterBody2D = null
+
+@export_group("Speed")
+@export_range(0, 100, 1, "or_greater", "hide_slider") var walk_speed: float = 64:
+	get = get_walk_speed,
+	set = set_walk_speed
+@export_range(0, 100, 1, "or_greater", "hide_slider") var run_speed: float = 128:
+	get = get_run_speed,
+	set = set_run_speed
+
 
 var direction: Vector2 = Vector2.ZERO:
 	get = get_direction,
@@ -26,12 +32,12 @@ func _physics_process(delta: float) -> void:
 	_force = Vector2.ZERO
 
 
-func get_speed() -> float:
+func get_walk_speed() -> float:
 	return speed
 
 
-func set_speed(new_value: float) -> void:
-	speed = maxf(0, new_value)
+func set_walk_speed(new_walk_speed: float) -> void:
+	speed = maxf(0, new_walk_speed)
 
 
 func get_mass() -> float:

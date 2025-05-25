@@ -34,6 +34,8 @@ metadata/_custom_type_script = "uid://y1uixca2kvms"
 
 [node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("2_3fop4")
+speed = null
+mass = null
 character_body = NodePath("..")
 metadata/_custom_type_script = "uid://bh467f4lvbdgk"
 

@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Loot or Leave"
+config/name="Loot Or Leave"
 config/version="0.1.0"
+run/main_scene="uid://v3emyslnn20f"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/use_filter=false
+boot_splash/image="uid://6t1n0in7ueck"
 
 [display]
 
