@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Loot Or Leave"
+config/name="Loot or Leave"
 config/version="0.1.0"
 run/main_scene="uid://v3emyslnn20f"
 config/features=PackedStringArray("4.5", "Forward Plus")
@@ -20,6 +20,8 @@ boot_splash/image="uid://6t1n0in7ueck"
 
 [display]
 
+window/size/viewport_width=480
+window/size/viewport_height=270
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://bclb2a3epgfrh"

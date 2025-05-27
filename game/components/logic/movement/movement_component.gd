@@ -7,18 +7,17 @@ class_name MovementComponent extends Node
 	get = get_mass,
 	set = set_mass
 
+
 @export_group("Speed")
-@export_range(0, 100, 1, "or_greater", "hide_slider") var walk_speed: float = 64:
-	get = get_walk_speed,
-	set = set_walk_speed
-@export_range(0, 100, 1, "or_greater", "hide_slider") var run_speed: float = 128:
-	get = get_run_speed,
-	set = set_run_speed
+@export_range(0, 100, 1, "or_greater", "hide_slider") var speed: float = 128:
+	get = get_speed,
+	set = set_speed
 
 
 var direction: Vector2 = Vector2.ZERO:
 	get = get_direction,
 	set = set_direction
+
 
 var _force: Vector2 = Vector2.ZERO
 
@@ -26,18 +25,18 @@ var _force: Vector2 = Vector2.ZERO
 func _physics_process(delta: float) -> void:
 	if character_body == null: return
 
-	character_body.velocity = _force / mass * delta / 2 + direction * speed
-	character_body.move_and_slide()
+	var acceleration: Vector2 = _force / mass * delta / 2
+
+	if direction == Vector2.ZERO:
+		character_body.velocity += acceleration
+		character_body.move_and_slide()
+		character_body.velocity += acceleration
+	else:
+		character_body.velocity = direction * speed + acceleration
+		character_body.move_and_slide()
+		character_body.velocity = Vector2.ZERO
 
 	_force = Vector2.ZERO
-
-
-func get_walk_speed() -> float:
-	return speed
-
-
-func set_walk_speed(new_walk_speed: float) -> void:
-	speed = maxf(0, new_walk_speed)
 
 
 func get_mass() -> float:
@@ -47,6 +46,14 @@ func get_mass() -> float:
 func set_mass(new_value: float) -> void:
 	if new_value < 0 || is_zero_approx(new_value): return
 	mass = new_value
+
+
+func get_speed() -> float:
+	return speed
+
+
+func set_speed(new_speed: float) -> void:
+	speed = maxf(0, new_speed)
 
 
 func get_direction() -> Vector2:

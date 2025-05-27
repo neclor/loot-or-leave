@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dobshe3t2niv7"]
+
+[ext_resource type="Script" uid="uid://cphauhw4nadxy" path="res://child.gd" id="1_mbxob"]
+
+[node name="Child" type="Node"]
+script = ExtResource("1_mbxob")
+a = 1
+metadata/_custom_type_script = "uid://cphauhw4nadxy"
+
+[connection signal="signa" from="." to="." method="sig"]

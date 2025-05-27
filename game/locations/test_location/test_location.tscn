@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bu3oggikpl8wu" path="res://assets/assets/sprites/game/rooms/dungeon_tileset.png" id="1_hgff7"]
 [ext_resource type="Texture2D" uid="uid://bhy0a4rmtd2xv" path="res://assets/assets/sprites/game/rooms/dungeon_tileset_normalmap.png" id="2_1aj3u"]
 [ext_resource type="PackedScene" uid="uid://tga7ruwavdnw" path="res://game/objects/barrel/barrel.tscn" id="3_r2vvy"]
-[ext_resource type="PackedScene" uid="uid://d1lh1ufo7m85m" path="res://game/entities/characters/knight/knight.tscn" id="4_rn6qg"]
+[ext_resource type="PackedScene" uid="uid://d1lh1ufo7m85m" path="res://game/entities/entity_template/entity_template.tscn" id="4_rn6qg"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hgff7"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

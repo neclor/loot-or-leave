@@ -7,3 +7,14 @@ func _ready():
 
 func custom_value():
 	return "parent"
+
+
+func _on_timer_timeout():
+	var node = $"../Child"
+	
+	var flat_copy := node.duplicate(DUPLICATE_SIGNALS | DUPLICATE_GROUPS | DUPLICATE_SCRIPTS | DUPLICATE_USE_INSTANTIATION)
+
+	var scene = PackedScene.new()
+	var result = scene.pack(node)
+
+	var error = ResourceSaver.save(scene, "res://chill.tscn")

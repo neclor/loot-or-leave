@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6dwnubsgw6ga"]
-
-[ext_resource type="Script" uid="uid://ky8agips3quq" path="res://game/components/node_components/point_light/point_light_component.gd" id="1_keesb"]
+[gd_scene load_steps=3 format=3 uid="uid://b6dwnubsgw6ga"]
 
 [sub_resource type="Gradient" id="Gradient_dogeh"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -19,4 +17,3 @@ shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_4qg4d")
 height = 16.0
-script = ExtResource("1_keesb")

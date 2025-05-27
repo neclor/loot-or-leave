@@ -2,6 +2,7 @@ class_name InputComponent extends Node
 
 
 signal input_direction_changed(direction: Vector2)
+signal input_
 signal scroll_up
 signal scroll_down
 
