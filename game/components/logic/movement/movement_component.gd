@@ -25,14 +25,14 @@ var _force: Vector2 = Vector2.ZERO
 func _physics_process(delta: float) -> void:
 	if character_body == null: return
 
-	var acceleration: Vector2 = _force / mass * delta / 2
+	var step_acceleration: Vector2 = _force / mass * delta / 2
 
 	if direction == Vector2.ZERO:
-		character_body.velocity += acceleration
+		character_body.velocity += step_acceleration
 		character_body.move_and_slide()
-		character_body.velocity += acceleration
+		character_body.velocity += step_acceleration
 	else:
-		character_body.velocity = direction * speed + acceleration
+		character_body.velocity = direction * speed + step_acceleration
 		character_body.move_and_slide()
 		character_body.velocity = Vector2.ZERO
 

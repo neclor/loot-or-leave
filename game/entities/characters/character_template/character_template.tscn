@@ -1,5 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://stbdykvadflo"]
+[gd_scene load_steps=4 format=3 uid="uid://stbdykvadflo"]
 
 [ext_resource type="PackedScene" uid="uid://d1lh1ufo7m85m" path="res://game/entities/entity_template/entity_template.tscn" id="1_gtseb"]
+[ext_resource type="PackedScene" uid="uid://dxdofq3wesr6n" path="res://game/components/visual/camera/camera_component.tscn" id="2_dqu4y"]
+[ext_resource type="Script" uid="uid://y1uixca2kvms" path="res://game/components/logic/input/input_component.gd" id="2_xwbha"]
 
 [node name="CharacterTemplate" instance=ExtResource("1_gtseb")]
+
+[node name="CameraComponent" parent="VisualContainerComponent" index="3" instance=ExtResource("2_dqu4y")]
+
+[node name="InputComponent" type="Node" parent="." index="4"]
+script = ExtResource("2_xwbha")
+metadata/_custom_type_script = "uid://y1uixca2kvms"
+
+[connection signal="input_direction_changed" from="InputComponent" to="MovementComponent" method="set_direction"]
+
+[editable path="VisualContainerComponent/SpriteComponent"]

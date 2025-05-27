@@ -1,14 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1lh1ufo7m85m"]
+[gd_scene load_steps=8 format=3 uid="uid://d1lh1ufo7m85m"]
 
 [ext_resource type="Script" uid="uid://dmatjj28vhqtx" path="res://game/components/visual/visual_container/visual_container_component.gd" id="1_5lrn2"]
-[ext_resource type="Script" uid="uid://y1uixca2kvms" path="res://game/components/logic/input/input_component.gd" id="1_ebuqp"]
-[ext_resource type="Texture2D" uid="uid://dx3xvfdyrxqce" path="res://assets/sprites/game/entities/characters/dancing_knight_spritelist.png" id="1_h81dl"]
 [ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/components/logic/movement/movement_component.gd" id="2_3fop4"]
+[ext_resource type="PackedScene" uid="uid://dbufhnpdmtis1" path="res://game/components/visual/sprite/sprite_component.tscn" id="2_8exeg"]
 [ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/logic/health/health_component.gd" id="3_4dlhe"]
 [ext_resource type="PackedScene" uid="uid://3fnprqlkxncp" path="res://game/components/visual/shadow/shadow_component.tscn" id="4_3icvs"]
 [ext_resource type="PackedScene" uid="uid://b6dwnubsgw6ga" path="res://game/components/visual/point_light/point_light_component.tscn" id="5_4dlhe"]
-[ext_resource type="Script" uid="uid://cphauhw4nadxy" path="res://child.gd" id="6_maq08"]
-[ext_resource type="Script" uid="uid://0fq0urg4gqqo" path="res://parent.gd" id="8_s3sgw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2gnec"]
 radius = 3.0
@@ -23,13 +20,11 @@ motion_mode = 1
 script = ExtResource("1_5lrn2")
 metadata/_custom_type_script = "uid://dmatjj28vhqtx"
 
+[node name="SpriteComponent" parent="VisualContainerComponent" instance=ExtResource("2_8exeg")]
+hframes = 4
+
 [node name="PointLightComponent" parent="VisualContainerComponent" instance=ExtResource("5_4dlhe")]
 color = Color(1, 0.78, 0.12, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="VisualContainerComponent"]
-position = Vector2(0, -8)
-texture = ExtResource("1_h81dl")
-hframes = 4
 
 [node name="ShadowComponent" parent="VisualContainerComponent" instance=ExtResource("4_3icvs")]
 
@@ -37,41 +32,13 @@ hframes = 4
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2gnec")
 
-[node name="InputComponent" type="Node" parent="."]
-script = ExtResource("1_ebuqp")
-metadata/_custom_type_script = "uid://y1uixca2kvms"
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_4dlhe")
+metadata/_custom_type_script = "uid://bxl81556qdm7w"
 
 [node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("2_3fop4")
 character_body = NodePath("..")
 metadata/_custom_type_script = "uid://bh467f4lvbdgk"
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("3_4dlhe")
-metadata/_custom_type_script = "uid://bxl81556qdm7w"
-
-[node name="Child" type="Node" parent="."]
-script = ExtResource("6_maq08")
-metadata/_custom_type_script = "uid://cphauhw4nadxy"
-
-[node name="Label" type="Label" parent="Child"]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1"
-
-[node name="Label" type="Label" parent="Child/Label"]
-visible = false
-layout_mode = 0
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 56.0
-offset_bottom = 38.0
-text = "2"
-
-[node name="Parent" type="Node" parent="."]
-script = ExtResource("8_s3sgw")
-metadata/_custom_type_script = "uid://0fq0urg4gqqo"
-
-[connection signal="input_direction_changed" from="InputComponent" to="MovementComponent" method="set_direction"]
-[connection signal="signa" from="Child" to="Child" method="sig"]
+[editable path="VisualContainerComponent/SpriteComponent"]

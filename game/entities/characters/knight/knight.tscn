@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4hhaeq2musxh"]
+
+[ext_resource type="PackedScene" uid="uid://stbdykvadflo" path="res://game/entities/characters/character_template/character_template.tscn" id="1_r1fne"]
+[ext_resource type="Texture2D" uid="uid://bsudjladdod1m" path="res://assets/sprites/game/entities/characters/knight_spritelist.png" id="2_i75eq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ebuqp"]
+diffuse_texture = ExtResource("2_i75eq")
+
+[node name="Knight" instance=ExtResource("1_r1fne")]
+
+[node name="SpriteComponent" parent="VisualContainerComponent" index="0"]
+position = Vector2(0, -8)
+texture = SubResource("CanvasTexture_ebuqp")
+
+[node name="ShadowComponent" parent="VisualContainerComponent" index="2"]
+visible = false
+
+[node name="CameraComponent" parent="VisualContainerComponent" index="3"]
+position = Vector2(1, -4)
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+
+[connection signal="input_direction_changed" from="InputComponent" to="MovementComponent" method="set_direction"]
+
+[editable path="VisualContainerComponent/SpriteComponent"]
