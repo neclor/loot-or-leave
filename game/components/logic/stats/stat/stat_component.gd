@@ -53,6 +53,10 @@ func set_value(new_value: int) -> void:
 	if not _check_zero(): _check_full()
 
 
+func set_value_to_max() -> void:
+	value = max_value
+
+
 func is_zero() -> bool:
 	return value == 0
 

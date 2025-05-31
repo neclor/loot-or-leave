@@ -6,12 +6,10 @@
 
 [node name="CharacterTemplate" instance=ExtResource("1_gtseb")]
 
-[node name="CameraComponent" parent="VisualContainerComponent" index="3" instance=ExtResource("2_dqu4y")]
+[node name="CameraComponent" parent="VisualContainerComponent" index="4" instance=ExtResource("2_dqu4y")]
 
 [node name="InputComponent" type="Node" parent="." index="4"]
 script = ExtResource("2_xwbha")
 metadata/_custom_type_script = "uid://y1uixca2kvms"
-
-[connection signal="input_direction_changed" from="InputComponent" to="MovementComponent" method="set_direction"]
 
 [editable path="VisualContainerComponent/SpriteComponent"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1tcn253iewvh"]
 
-[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/logic/health/health_component.gd" id="1_h7ewm"]
+[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/logic/stats/health/health_component.gd" id="1_h7ewm"]
 [ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/components/logic/movement/movement_component.gd" id="2_uip1r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukd17"]

@@ -3,6 +3,7 @@
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_c7exc"]
 
 [node name="SpriteComponent" type="Sprite2D"]
+z_index = 1
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendSpace2D_c7exc")

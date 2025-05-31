@@ -6,8 +6,8 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gvgj2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gvgj2"]
-cull_mode = 1
-polygon = PackedVector2Array(5, 8, 8, 3, 8, -3, 7, -6, 5, -8, -5, -8, -7, -6, -8, -3, -8, 3, -5, 8)
+cull_mode = 2
+polygon = PackedVector2Array(-4, 8, -8, 3, -4, 0, 4, 0, 8, 3, 4, 8)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wsjv2"]
 diffuse_texture = ExtResource("1_gvgj2")
@@ -28,6 +28,7 @@ gravity_scale = 0.0
 occluder = SubResource("OccluderPolygon2D_gvgj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
 texture = SubResource("CanvasTexture_wsjv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

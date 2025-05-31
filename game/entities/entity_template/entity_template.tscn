@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1lh1ufo7m85m"]
+[gd_scene load_steps=9 format=3 uid="uid://d1lh1ufo7m85m"]
 
 [ext_resource type="Script" uid="uid://dmatjj28vhqtx" path="res://game/components/visual/visual_container/visual_container_component.gd" id="1_5lrn2"]
 [ext_resource type="Script" uid="uid://bh467f4lvbdgk" path="res://game/components/logic/movement/movement_component.gd" id="2_3fop4"]
 [ext_resource type="PackedScene" uid="uid://dbufhnpdmtis1" path="res://game/components/visual/sprite/sprite_component.tscn" id="2_8exeg"]
-[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/logic/health/health_component.gd" id="3_4dlhe"]
+[ext_resource type="Script" uid="uid://bxl81556qdm7w" path="res://game/components/logic/stats/health/health_component.gd" id="3_4dlhe"]
 [ext_resource type="PackedScene" uid="uid://3fnprqlkxncp" path="res://game/components/visual/shadow/shadow_component.tscn" id="4_3icvs"]
 [ext_resource type="PackedScene" uid="uid://b6dwnubsgw6ga" path="res://game/components/visual/point_light/point_light_component.tscn" id="5_4dlhe"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fb2t2"]
+cull_mode = 1
+polygon = PackedVector2Array(0, 3, -6, 1, -7, -4, -6, -12, 0, -15, 5, -13, 4, -5, 5, 2)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2gnec"]
 radius = 3.0
@@ -20,13 +24,17 @@ motion_mode = 1
 script = ExtResource("1_5lrn2")
 metadata/_custom_type_script = "uid://dmatjj28vhqtx"
 
+[node name="ShadowComponent" parent="VisualContainerComponent" instance=ExtResource("4_3icvs")]
+
 [node name="SpriteComponent" parent="VisualContainerComponent" instance=ExtResource("2_8exeg")]
 hframes = 4
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="VisualContainerComponent"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_fb2t2")
+
 [node name="PointLightComponent" parent="VisualContainerComponent" instance=ExtResource("5_4dlhe")]
 color = Color(1, 0.78, 0.12, 1)
-
-[node name="ShadowComponent" parent="VisualContainerComponent" instance=ExtResource("4_3icvs")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

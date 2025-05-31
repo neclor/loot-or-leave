@@ -16,7 +16,11 @@ run/main_scene="uid://v3emyslnn20f"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
-boot_splash/image="uid://6t1n0in7ueck"
+boot_splash/image="uid://dohua5tva8l5x"
+
+[autoload]
+
+GlobalSignals="*res://core/global_signals.gd"
 
 [display]
 
@@ -34,20 +38,21 @@ enabled=PackedStringArray("res://addons/gdmaim/plugin.cfg")
 
 folder_colors={
 "res://assets/": "yellow",
+"res://core/": "red",
 "res://game/": "blue",
 "res://game/common/": "orange",
 "res://game/components/": "orange",
 "res://game/entities/": "purple",
 "res://game/entities/characters/": "blue",
 "res://game/entities/enemies/": "red",
-"res://game/items/": "purple",
+"res://game/items/": "pink",
 "res://game/items/weapons/": "red",
-"res://game/locations/": "blue",
-"res://game/objects/": "yellow",
-"res://main/": "red",
+"res://game/world/": "blue",
+"res://game/world/objects/": "yellow",
 "res://menu/": "green",
 "res://resources/": "teal",
-"res://test/": "gray"
+"res://test/": "gray",
+"res://utils/": "orange"
 }
 
 [input]

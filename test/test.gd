@@ -4,7 +4,7 @@ extends EditorScript
 
 func _run() -> void:
 	print("TEST")
-	run_test_scripts("res://test/test_game/")
+	run_test_scripts("res://test/game/")
 	print("TEST COMPLETED")
 
 
