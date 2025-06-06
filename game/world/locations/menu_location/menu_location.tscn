@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxjjfxjekko6f"]
+
+[ext_resource type="PackedScene" uid="uid://cnj1sr6qolgis" path="res://game/world/locations/location/location.tscn" id="1_3v6ie"]
+[ext_resource type="Script" uid="uid://cc0tsyyu1qxev" path="res://game/world/locations/menu_location/menu_location.gd" id="2_uwopa"]
+[ext_resource type="TileSet" uid="uid://dx772sdvqqaxg" path="res://resources/tile_sets/blue_dungeon_tile_set.tres" id="2_wwqco"]
+[ext_resource type="PackedScene" uid="uid://c4hhaeq2musxh" path="res://game/entities/characters/knight/knight.tscn" id="3_wwqco"]
+
+[node name="MenuLocation" instance=ExtResource("1_3v6ie")]
+script = ExtResource("2_uwopa")
+
+[node name="TerrainLayer" parent="TileMapContainer" index="0"]
+tile_set = ExtResource("2_wwqco")
+navigation_enabled = false
+
+[node name="Knight" parent="EntityContainer" index="0" instance=ExtResource("3_wwqco")]
+position = Vector2(216, 120)

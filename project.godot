@@ -16,7 +16,8 @@ run/main_scene="uid://v3emyslnn20f"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
-boot_splash/image="uid://dohua5tva8l5x"
+boot_splash/image="uid://chwfy2r15yyxd"
+config/icon="uid://baqealy4hgb3y"
 
 [autoload]
 
@@ -32,7 +33,7 @@ mouse_cursor/custom_image="uid://bclb2a3epgfrh"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdmaim/plugin.cfg")
+enabled=PackedStringArray("res://addons/bdc/plugin.cfg", "res://addons/gdmaim/plugin.cfg", "res://addons/res/plugin.cfg")
 
 [file_customization]
 
@@ -47,8 +48,8 @@ folder_colors={
 "res://game/entities/enemies/": "red",
 "res://game/items/": "pink",
 "res://game/items/weapons/": "red",
+"res://game/objects/": "yellow",
 "res://game/world/": "blue",
-"res://game/world/objects/": "yellow",
 "res://menu/": "green",
 "res://resources/": "teal",
 "res://test/": "gray",

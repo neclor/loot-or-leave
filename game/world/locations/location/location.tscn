@@ -1,11 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnj1sr6qolgis"]
 
-[sub_resource type="Environment" id="Environment_p08t6"]
+[ext_resource type="Script" uid="uid://cwxt7ee7c8fx" path="res://game/world/locations/location/location.gd" id="1_ttp2r"]
 
-[node name="LocationTemplate" type="Node2D"]
+[node name="Location" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ttp2r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -18,17 +20,17 @@ color = Color(0.054902, 0.027451, 0.105882, 1)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5, 0.5, 0.5, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_p08t6")
-
 [node name="TileMapContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Terrain" type="TileMapLayer" parent="TileMapContainer"]
+[node name="TerrainLayer" type="TileMapLayer" parent="TileMapContainer"]
+unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="Objects" type="TileMapLayer" parent="TileMapContainer"]
+[node name="ObjectLayer" type="TileMapLayer" parent="TileMapContainer"]
+unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="EntityContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
 y_sort_enabled = true
