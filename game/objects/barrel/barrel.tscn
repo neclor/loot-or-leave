@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://tga7ruwavdnw"]
 
-[ext_resource type="Texture2D" uid="uid://bgh5one2qyyeu" path="res://assets/sprites/game/objects/barrel/barrel.png" id="1_gvgj2"]
-[ext_resource type="Texture2D" uid="uid://1hgtaeved1o4" path="res://assets/sprites/game/objects/barrel/barrel_normal_map.png" id="2_1646h"]
+[ext_resource type="Texture2D" uid="uid://bgh5one2qyyeu" path="res://addons/neclor_dungeon_assets/sprites/objects/barrels/barrel/barrel.png" id="1_gvgj2"]
+[ext_resource type="Texture2D" uid="uid://1hgtaeved1o4" path="res://addons/neclor_dungeon_assets/sprites/objects/barrels/barrel/barrel_normal_map.png" id="2_1646h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gvgj2"]
 

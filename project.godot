@@ -12,7 +12,6 @@ config_version=5
 
 config/name="Loot or Leave"
 config/version="0.1.0"
-run/main_scene="uid://v3emyslnn20f"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
@@ -25,11 +24,10 @@ GlobalSignals="*res://core/global_signals.gd"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="uid://bclb2a3epgfrh"
 
 [editor_plugins]
 
@@ -38,22 +36,25 @@ enabled=PackedStringArray("res://addons/bdc/plugin.cfg", "res://addons/gdmaim/pl
 [file_customization]
 
 folder_colors={
+"res://addons/neclor_commons/assets/": "yellow",
+"res://addons/neclor_commons/src/components/scenes/": "teal",
+"res://addons/neclor_commons/src/lib/": "orange",
+"res://addons/neclor_commons/src/templates/": "blue",
+"res://addons/neclor_commons/src/templates/ui/": "green",
+"res://addons/neclor_dungeon_assets/": "yellow",
 "res://assets/": "yellow",
 "res://core/": "red",
 "res://game/": "blue",
-"res://game/common/": "orange",
-"res://game/components/": "orange",
 "res://game/entities/": "purple",
 "res://game/entities/characters/": "blue",
 "res://game/entities/enemies/": "red",
 "res://game/items/": "pink",
 "res://game/items/weapons/": "red",
+"res://game/locations/": "blue",
 "res://game/objects/": "yellow",
-"res://game/world/": "blue",
 "res://menu/": "green",
 "res://resources/": "teal",
-"res://test/": "gray",
-"res://utils/": "orange"
+"res://test/": "gray"
 }
 
 [input]

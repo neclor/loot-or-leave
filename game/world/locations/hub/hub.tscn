@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://11f5hx7hliqr"]
-
-[ext_resource type="PackedScene" uid="uid://cnj1sr6qolgis" path="res://game/world/locations/location/location.tscn" id="1_off6s"]
-
-[node name="Hub" instance=ExtResource("1_off6s")]
